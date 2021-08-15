@@ -101,3 +101,26 @@ mysql> SELECT * FROM address_book_table;
 | Piyush     | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 7978342314 | losting585@gmail.com     |
 +------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+
 3 rows in set (0.08 sec)
+
+---------------------
+	UC6
+---------------------
+mysql> SELECT first_name FROM address_book_table WHERE city = 'Berhampur';
++------------+
+| first_name |
++------------+
+| Rohit      |
+| Rajat      |
+| Piyush     |
++------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT phone FROM address_book_table WHERE state = 'Odisha';
++------------+
+| phone      |
++------------+
+| 8249632998 |
+| 9237582721 |
+| 7978342314 |
++------------+
+3 rows in set (0.00 sec)
