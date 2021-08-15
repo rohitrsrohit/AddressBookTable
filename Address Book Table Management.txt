@@ -164,3 +164,58 @@ mysql> SELECT first_name, last_name, address, city, state, zip, phone, email FRO
 | Rohit      | Patro     | Gandhinagar | Berhampur | Odisha | 760001 | 8249632998 | rohitpatro6@gmail.com    |
 +------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+
 3 rows in set (0.07 sec)
+
+---------------------
+	UC9
+---------------------
+mysql> ALTER TABLE address_book_table ADD type VARCHAR(150) AFTER email;
+Query OK, 0 rows affected (4.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE address_book_table;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| first_name | varchar(150) | NO   |     | NULL    |       |
+| last_name  | varchar(150) | NO   |     | NULL    |       |
+| address    | varchar(150) | NO   |     | NULL    |       |
+| city       | varchar(150) | NO   |     | NULL    |       |
+| state      | varchar(150) | NO   |     | NULL    |       |
+| zip        | int          | NO   |     | NULL    |       |
+| phone      | varchar(10)  | NO   |     | NULL    |       |
+| email      | varchar(320) | NO   |     | NULL    |       |
+| type       | varchar(150) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+9 rows in set (0.10 sec)
+
+mysql> UPDATE address_book_table SET type = 'Family' WHERE first_name = 'Rohit';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM address_book_table;
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+--------+
+| first_name | last_name | address     | city      | state  | zip    | phone      | email                    | type   |
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+--------+
+| Rohit      | Patro     | Gandhinagar | Berhampur | Odisha | 760001 | 8249632998 | rohitpatro6@gmail.com    | Family |
+| Rajat      | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 9237582721 | rajatpatro2006@gmail.com | NULL   |
+| Piyush     | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 7978342314 | losting585@gmail.com     | NULL   |
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+--------+
+3 rows in set (0.04 sec)
+
+mysql> UPDATE address_book_table SET type = 'Friend' WHERE first_name = 'Rajat';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book_table SET type = 'Professional' WHERE first_name = 'Piyush';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM address_book_table;
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+--------------+
+| first_name | last_name | address     | city      | state  | zip    | phone      | email                    | type         |
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+--------------+
+| Rohit      | Patro     | Gandhinagar | Berhampur | Odisha | 760001 | 8249632998 | rohitpatro6@gmail.com    | Family       |
+| Rajat      | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 9237582721 | rajatpatro2006@gmail.com | Friend       |
+| Piyush     | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 7978342314 | losting585@gmail.com     | Professional |
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+--------------+
+3 rows in set (0.00 sec)
