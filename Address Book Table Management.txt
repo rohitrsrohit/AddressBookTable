@@ -68,17 +68,3 @@ mysql> SELECT * FROM address_book_table;
 +------------+-----------+---------+-----------+-----------+--------+------------+--------------------------+
 4 rows in set (0.06 sec)
 
-mysql> DESCRIBE address_book_table;
-+------------+--------------+------+-----+---------+-------+
-| Field      | Type         | Null | Key | Default | Extra |
-+------------+--------------+------+-----+---------+-------+
-| first_name | varchar(150) | NO   |     | NULL    |       |
-| last_name  | varchar(150) | NO   |     | NULL    |       |
-| address    | varchar(150) | NO   |     | NULL    |       |
-| city       | varchar(150) | NO   |     | NULL    |       |
-| state      | varchar(150) | NO   |     | NULL    |       |
-| zip        | int          | NO   |     | NULL    |       |
-| phone      | varchar(10)  | NO   |     | NULL    |       |
-| email      | varchar(320) | NO   |     | NULL    |       |
-+------------+--------------+------+-----+---------+-------+
-8 rows in set (0.12 sec)
