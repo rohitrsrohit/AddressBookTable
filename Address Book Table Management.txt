@@ -46,6 +46,28 @@ mysql> CREATE TABLE address_book_table
     -> );
 Query OK, 0 rows affected (0.99 sec)
 
+---------------------
+	UC3
+---------------------
+mysql> INSERT INTO address_book_table(first_name,last_name,address,city,state,zip,phone,email) VALUES
+    -> ('Rohit', 'Patro', 'Bijipur', 'Berhampur', 'Odisha', 760001, 8249632998, 'rohitpatro6@gmail.com'),
+    -> ('Rajat', 'Patro', 'Bijipur', 'Berhampur', 'Odisha', 760001, 9237582721, 'rajatpatro2006@gmail.com'),
+    -> ('Piyush', 'Patro', 'Bijipur', 'Berhampur', 'Odisha', 760001, 7978342314, 'losting585@gmail.com'),
+    -> ('Swati', 'Nayak', 'Mysore', 'Bangalore', 'Karnataka', 570001, 9437034044, 'swatinayak881@gmail.com');
+Query OK, 4 rows affected (0.39 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM address_book_table;
++------------+-----------+---------+-----------+-----------+--------+------------+--------------------------+
+| first_name | last_name | address | city      | state     | zip    | phone      | email                    |
++------------+-----------+---------+-----------+-----------+--------+------------+--------------------------+
+| Rohit      | Patro     | Bijipur | Berhampur | Odisha    | 760001 | 8249632998 | rohitpatro6@gmail.com    |
+| Rajat      | Patro     | Bijipur | Berhampur | Odisha    | 760001 | 9237582721 | rajatpatro2006@gmail.com |
+| Piyush     | Patro     | Bijipur | Berhampur | Odisha    | 760001 | 7978342314 | losting585@gmail.com     |
+| Swati      | Nayak     | Mysore  | Bangalore | Karnataka | 570001 | 9437034044 | swatinayak881@gmail.com  |
++------------+-----------+---------+-----------+-----------+--------+------------+--------------------------+
+4 rows in set (0.06 sec)
+
 mysql> DESCRIBE address_book_table;
 +------------+--------------+------+-----+---------+-------+
 | Field      | Type         | Null | Key | Default | Extra |
