@@ -85,3 +85,19 @@ mysql> SELECT * FROM address_book_table;
 | Swati      | Nayak     | Mysore      | Bangalore | Karnataka | 570001 | 9437034044 | swatinayak881@gmail.com  |
 +------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+
 4 rows in set (0.07 sec)
+
+---------------------
+	UC5
+---------------------
+mysql> DELETE FROM address_book_table WHERE first_name = 'Swati';
+Query OK, 1 row affected (0.14 sec)
+
+mysql> SELECT * FROM address_book_table;
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+
+| first_name | last_name | address     | city      | state  | zip    | phone      | email                    |
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+
+| Rohit      | Patro     | Gandhinagar | Berhampur | Odisha | 760001 | 8249632998 | rohitpatro6@gmail.com    |
+| Rajat      | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 9237582721 | rajatpatro2006@gmail.com |
+| Piyush     | Patro     | Bijipur     | Berhampur | Odisha | 760001 | 7978342314 | losting585@gmail.com     |
++------------+-----------+-------------+-----------+--------+--------+------------+--------------------------+
+3 rows in set (0.08 sec)
