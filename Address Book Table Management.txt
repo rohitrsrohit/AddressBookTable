@@ -1,1 +1,31 @@
 Welcome To Address Book Table
+
+-------------------
+	UC1
+-------------------
+mysql> CREATE DATABASE address_book_table;
+Query OK, 1 row affected (0.39 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| payroll_service    |
+| address_book_table |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.08 sec)
+
+mysql> use address_book_table;
+Database changed
+
+mysql> select database();
++--------------------+
+| database()         |
++--------------------+
+| address_book_table |
++--------------------+
+1 row in set (0.00 sec)
