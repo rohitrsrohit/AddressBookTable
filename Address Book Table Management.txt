@@ -246,3 +246,37 @@ mysql> SELECT type, COUNT(first_name) FROM address_book_table WHERE type = 'Prof
 | Professional |                 1 |
 +--------------+-------------------+
 1 row in set (0.00 sec)
+
+---------------------
+	UC11
+---------------------
+mysql> insert into address_book_table values
+    -> ('Swati', 'Nayak', 'Mysore', 'Bangalore', 'Karnataka', 570001, 9437034044, 'swatinayak881@gmail.com', 'Family');
+Query OK, 1 row affected (0.80 sec)
+
+mysql> select * from address_book_table;
++------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
+| first_name | last_name | address     | city      | state     | zip    | phone      | email                    | type         |
++------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
+| Rohit      | Patro     | Gandhinagar | Berhampur | Odisha    | 760001 | 8249632998 | rohitpatro6@gmail.com    | Family       |
+| Rajat      | Patro     | Bijipur     | Berhampur | Odisha    | 760001 | 9237582721 | rajatpatro2006@gmail.com | Friend       |
+| Piyush     | Patro     | Bijipur     | Berhampur | Odisha    | 760001 | 7978342314 | losting585@gmail.com     | Professional |
+| Swati      | Nayak     | Mysore      | Bangalore | Karnataka | 570001 | 9437034044 | swatinayak881@gmail.com  | Family       |
++------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
+4 rows in set (0.26 sec)
+
+mysql> insert into address_book_table values
+    -> ('Swati', 'Nayak', 'Mysore', 'Bangalore', 'Karnataka', 570001, 9437034044, 'swatinayak881@gmail.com', 'Friend');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from address_book_table;
++------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
+| first_name | last_name | address     | city      | state     | zip    | phone      | email                    | type         |
++------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
+| Rohit      | Patro     | Gandhinagar | Berhampur | Odisha    | 760001 | 8249632998 | rohitpatro6@gmail.com    | Family       |
+| Rajat      | Patro     | Bijipur     | Berhampur | Odisha    | 760001 | 9237582721 | rajatpatro2006@gmail.com | Friend       |
+| Piyush     | Patro     | Bijipur     | Berhampur | Odisha    | 760001 | 7978342314 | losting585@gmail.com     | Professional |
+| Swati      | Nayak     | Mysore      | Bangalore | Karnataka | 570001 | 9437034044 | swatinayak881@gmail.com  | Family       |
+| Swati      | Nayak     | Mysore      | Bangalore | Karnataka | 570001 | 9437034044 | swatinayak881@gmail.com  | Friend       |
++------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
+5 rows in set (0.00 sec)
