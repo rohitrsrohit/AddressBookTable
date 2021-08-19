@@ -280,3 +280,127 @@ mysql> select * from address_book_table;
 | Swati      | Nayak     | Mysore      | Bangalore | Karnataka | 570001 | 9437034044 | swatinayak881@gmail.com  | Friend       |
 +------------+-----------+-------------+-----------+-----------+--------+------------+--------------------------+--------------+
 5 rows in set (0.00 sec)
+
+---------------------
+	UC13
+---------------------
+mysql> create table contacts
+    -> (
+    -> name             VARCHAR(150) NOT NULL,
+    -> email            VARCHAR(320) NOT NULL,
+    -> address          VARCHAR(150) NOT NULL,
+    -> phone            VARCHAR(10) NOT NULL,
+    -> state            VARCHAR(150) NOT NULL,
+    -> primary key      (name)
+    -> );
+Query OK, 0 rows affected (2.27 sec)
+
+mysql> describe contacts;
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| name    | varchar(150) | NO   | PRI | NULL    |       |
+| email   | varchar(320) | NO   |     | NULL    |       |
+| address | varchar(150) | NO   |     | NULL    |       |
+| phone   | varchar(10)  | NO   |     | NULL    |       |
+| state   | varchar(150) | NO   |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+5 rows in set (0.08 sec)
+
+mysql> create table address
+    -> (
+    -> city             VARCHAR(150) NOT NULL,
+    -> state            VARCHAR(150) NOT NULL,
+    -> zip              INT NOT NULL,
+    -> phone            VARCHAR(10) NOT NULL,
+    -> primary key      (city)
+    -> );
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> describe address;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| city  | varchar(150) | NO   | PRI | NULL    |       |
+| state | varchar(150) | NO   |     | NULL    |       |
+| zip   | int          | NO   |     | NULL    |       |
+| phone | varchar(10)  | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+4 rows in set (0.19 sec)
+
+mysql> create table address_type
+    -> (
+    -> name             VARCHAR(150) NOT NULL,
+    -> city             VARCHAR(150) NOT NULL,
+    -> type             VARCHAR(150) NOT NULL,
+    -> primary key      (name)
+    -> );
+Query OK, 0 rows affected (1.45 sec)
+
+mysql> describe address_type;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| name  | varchar(150) | NO   | PRI | NULL    |       |
+| city  | varchar(150) | NO   |     | NULL    |       |
+| type  | varchar(150) | NO   |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.06 sec)
+
+mysql> insert into contacts values
+    -> ('Rohit', 'rohitpatro6@gmail.com', 'Berhampur', 8249632998, 'Odisha'),
+    -> ('Rajat', 'rajatpatro2006@gmail.com', 'Bhubaneswar', 9237582721, 'Odisha'),
+    -> ('Bhagyashree', 'bhagyashree6@gmail.com', 'Bhavanipatna', 9861598756, 'Odisha'),
+    -> ('Raj', 'rajpatro6@gmail.com', 'Cuttack', 8156987852, 'Odisha');
+Query OK, 4 rows affected (0.20 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from contacts;
++-------------+--------------------------+--------------+------------+--------+
+| name        | email                    | address      | phone      | state  |
++-------------+--------------------------+--------------+------------+--------+
+| Bhagyashree | bhagyashree6@gmail.com   | Bhavanipatna | 9861598756 | Odisha |
+| Raj         | rajpatro6@gmail.com      | Cuttack      | 8156987852 | Odisha |
+| Rajat       | rajatpatro2006@gmail.com | Bhubaneswar  | 9237582721 | Odisha |
+| Rohit       | rohitpatro6@gmail.com    | Berhampur    | 8249632998 | Odisha |
++-------------+--------------------------+--------------+------------+--------+
+4 rows in set (0.00 sec)
+
+
+mysql> insert into address values
+    -> ('Berhampur', 'Odisha', 752002, 9236985475),
+    -> ('Baleswar', 'Odisha', 756221, 9876543210),
+    -> ('Mysore', 'Karnataka', 570001, 8569874569),
+    -> ('Bhubaneswar', 'Odisha', 760005, 9237582721);
+Query OK, 4 rows affected (0.20 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from address;
++-------------+-----------+--------+------------+
+| city        | state     | zip    | phone      |
++-------------+-----------+--------+------------+
+| Baleswar    | Odisha    | 756221 | 9876543210 |
+| Berhampur   | Odisha    | 752002 | 9236985475 |
+| Bhubaneswar | Odisha    | 760005 | 9237582721 |
+| Mysore      | Karnataka | 570001 | 8569874569 |
++-------------+-----------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into address_type values
+    -> ('Rohit', 'Berhampur', 'Family'),
+    -> ('Rajat', 'Berhampur', 'Friend'),
+    -> ('Ronit', 'Bhubaneswar', 'Professional'),
+    -> ('Mohit', 'Bhavanipatna', 'Outsider');
+Query OK, 4 rows affected (0.14 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from address_type;
++-------+--------------+--------------+
+| name  | city         | type         |
++-------+--------------+--------------+
+| Mohit | Bhavanipatna | Outsider     |
+| Rajat | Berhampur    | Friend       |
+| Rohit | Berhampur    | Family       |
+| Ronit | Bhubaneswar  | Professional |
++-------+--------------+--------------+
+4 rows in set (0.00 sec)
